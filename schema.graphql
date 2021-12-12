@@ -1,0 +1,42 @@
+type User {
+    ID: ID!
+    name: String!
+    email: String!
+}
+
+type Item {
+    ID: ID!
+    name: String!
+    price: Float!
+    category: Category
+    group: [Group!]
+    shoppingTrip: ShoppingTrip!
+}
+
+# Pre defined categories (necessity vs luxury items)
+type Category {
+    ID: ID!
+    name: String!
+    items: [Item!]
+}
+
+# Pre defined groups (fruits, vegetables, etc)
+type Group {
+    ID: ID!
+    name: String!
+    color: String
+}
+
+type Store {
+    ID: ID!
+    name: String!
+    items: [Item!]
+}
+
+type ShoppingTrip {
+    ID: ID!
+    name: String!
+    items: [Item!]
+    store: Store!
+    date: Int!
+}
